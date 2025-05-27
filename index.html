@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceYourDeen: Life & Hereafter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0A1A2F 0%, #1A8754 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo-image:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transform: scale(1.05);
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D4AF37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-logo:hover {
+            border-color: #D4AF37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #D4AF37, #FFC107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 10px;
+            color: #D4AF37;
+            letter-spacing: 2px;
+        }
+
+        .faith-grow-glow {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+        }
+
+        /* Tasbih Section */
+        .tasbih-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .tasbih-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Color Selection */
+        .color-selection {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-option.active {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .emerald { background: #1A8754; }
+        .gold { background: #D4AF37; }
+        .navy { background: #0A1A2F; }
+        .brown { background: #8B4513; }
+        .maroon { background: #800000; }
+
+        /* Dhikr Options */
+        .dhikr-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .dhikr-option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .dhikr-option:hover {
+            background: rgba(26, 135, 84, 0.2);
+            border-color: #1A8754;
+            transform: translateY(-5px);
+        }
+
+        .dhikr-option.active {
+            background: rgba(26, 135, 84, 0.3);
+            border-color: #D4AF37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .dhikr-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .dhikr-translation {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        /* Digital Tasbih */
+        .digital-tasbih {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .tasbih-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--tasbih-color, #1A8754) 0%, rgba(255, 255, 255, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tasbih-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .tasbih-circle:active {
+            transform: scale(0.95);
+        }
+
+        .tasbih-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(-45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .tasbih-circle:active::before {
+            opacity: 1;
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            0% { transform: rotate(-45deg) translate(-100%, -100%); }
+            100% { transform: rotate(-45deg) translate(100%, 100%); }
+        }
+
+        .count-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .current-dhikr {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #D4AF37;
+            min-height: 1.5em;
+        }
+
+        .reset-btn {
+            background: linear-gradient(45deg, #D4AF37, #FFC107);
+            color: #0A1A2F;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Footer Styles */
+        .footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .footer-author {
+            font-size: 1rem;
+            color: #D4AF37;
+            font-weight: 500;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 0 15px;
+            }
+
+            .navbar-nav {
+                display: none;
+            }
+
+            .header-logo {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 25px;
+            }
+
+            body {
+                padding-top: 70px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 40px 0;
+            }
+
+            .tasbih-section {
+                padding: 25px;
+                margin: 20px 0;
+            }
+
+            .dhikr-options {
+                grid-template-columns: 1fr;
+            }
+
+            .tasbih-circle {
+                width: 150px;
+                height: 150px;
+            }
+
+            .count-display {
+                font-size: 2.5rem;
+            }
+
+            .footer {
+                margin-top: 60px;
+                padding: 30px 0;
+            }
+
+            .footer-text {
+                font-size: 1rem;
+            }
+
+            .footer-author {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Additional animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse {
+            animation: pulse 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="https://ik.imagekit.io/hackenvision/Quran/aceyourdeen:lifeandhereafter?updatedAt=1748325253071" 
+                     alt="AceYourDeen Logo" 
+                     class="logo-image"
+                     onerror="this.style.display='none'">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tasbih</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="" 
+                 alt="Header Image" 
+                 class="header-logo"
+                 style="display: none;">
+            <h1 class="main-title">AceYourDeen: Life & Hereafter</h1>
+            <p class="faith-grow-glow">Faith • Grow • Glow</p>
+        </header>
+
+        <!-- Tasbih Section -->
+        <section class="#tasbih-section">
+            <div class="tasbih-container">
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    <div class="color-option emerald active" data-color="#1A8754" title="Emerald Green"></div>
+                    <div class="color-option gold" data-color="#D4AF37" title="Gold"></div>
+                    <div class="color-option navy" data-color="#0A1A2F" title="Navy Blue"></div>
+                    <div class="color-option brown" data-color="#8B4513" title="Brown"></div>
+                    <div class="color-option maroon" data-color="#800000" title="Maroon"></div>
+                </div>
+
+                <!-- Dhikr Options -->
+                <div class="dhikr-options">
+                    <div class="dhikr-option" data-dhikr="subhan-allah" data-count="33">
+                        <div class="dhikr-text">سُبْحَانَ اللَّهِ</div>
+                        <div class="dhikr-translation">Subhan Allah</div>
+                    </div>
+                    <div class="dhikr-option" data-dhikr="alhamdulillah" data-count="33">
+                        <div class="dhikr-text">الْحَمْدُ لِلَّهِ</div>
+                        <div class="dhikr-translation">Al-hamdu Lillah</div>
+                    </div>
+                    <div class="dhikr-option" data-dhikr="allahu-akbar" data-count="33">
+                        <div class="dhikr-text">اللَّهُ أَكْبَرُ</div>
+                        <div class="dhikr-translation">Allahu Akbar</div>
+                    </div>
+                    <div class="dhikr-option" data-dhikr="la-ilaha-illa-allah" data-count="1">
+                        <div class="dhikr-text">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</div>
+                        <div class="dhikr-translation">La ilaha ill-Allah wahdahu la sharika lahu, lahul-mulk wa lahul-hamd wa huwa 'ala kulli shayin qadir</div>
+                    </div>
+                </div>
+
+                <!-- Digital Tasbih -->
+                <div class="digital-tasbih">
+                    <div class="current-dhikr">Select a dhikr to begin</div>
+                    <div class="tasbih-circle" id="tasbihCircle">
+                        <div class="count-display" id="countDisplay">0</div>
+                    </div>
+                    <button class="reset-btn" id="resetBtn">Reset Count</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">Made with <span class="heart">♥</span> by</div>
+            <div class="footer-author">Mohammed Hussain Abid Khan</div>
+        </div>
+    </footer>
+
+    <script>
+        class DigitalTasbih {
+            constructor() {
+                this.currentCount = 0;
+                this.maxCount = 33;
+                this.selectedDhikr = null;
+                this.selectedColor = '#1A8754';
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updateTasbihColor();
+            }
+
+            bindEvents() {
+                // Color selection
+                document.querySelectorAll('.color-option').forEach(option => {
+                    option.addEventListener('click', (e) => this.selectColor(e));
+                });
+
+                // Dhikr selection
+                document.querySelectorAll('.dhikr-option').forEach(option => {
+                    option.addEventListener('click', (e) => this.selectDhikr(e));
+                });
+
+                // Tasbih click
+                document.getElementById('tasbihCircle').addEventListener('click', () => this.incrementCount());
+
+                // Reset button
+                document.getElementById('resetBtn').addEventListener('click', () => this.resetCount());
+            }
+
+            selectColor(e) {
+                // Remove active class from all color options
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to selected option
+                e.target.classList.add('active');
+                
+                // Update selected color
+                this.selectedColor = e.target.dataset.color;
+                this.updateTasbihColor();
+            }
+
+            selectDhikr(e) {
+                // Remove active class from all dhikr options
+                document.querySelectorAll('.dhikr-option').forEach(opt => opt.classList.remove('active'));
+                
+                // Add active class to selected option
+                e.target.classList.add('active');
+                
+                // Update selected dhikr
+                const dhikrData = e.target.dataset;
+                this.selectedDhikr = dhikrData.dhikr;
+                this.maxCount = parseInt(dhikrData.count);
+                
+                // Update display
+                const dhikrText = e.target.querySelector('.dhikr-translation').textContent;
+                document.querySelector('.current-dhikr').textContent = dhikrText;
+                
+                // Reset count when changing dhikr
+                this.resetCount();
+                
+                // Add fade-in animation
+                document.querySelector('.current-dhikr').classList.add('fade-in');
+                setTimeout(() => {
+                    document.querySelector('.current-dhikr').classList.remove('fade-in');
+                }, 500);
+            }
+
+            incrementCount() {
+                if (!this.selectedDhikr) {
+                    this.showMessage('Please select a dhikr first');
+                    return;
+                }
+
+                this.currentCount++;
+                document.getElementById('countDisplay').textContent = this.currentCount;
+
+                // Add pulse animation
+                document.getElementById('tasbihCircle').classList.add('pulse');
+                setTimeout(() => {
+                    document.getElementById('tasbihCircle').classList.remove('pulse');
+                }, 300);
+
+                // Check if max count reached
+                if (this.currentCount >= this.maxCount) {
+                    this.completeRound();
+                }
+            }
+
+            completeRound() {
+                // Show completion message
+                this.showMessage(`${this.selectedDhikr === 'la-ilaha-illa-allah' ? 'Completed!' : 'SubhanAllah! Round completed!'}`);
+                
+                // Auto reset after a short delay
+                setTimeout(() => {
+                    this.resetCount();
+                }, 1500);
+            }
+
+            resetCount() {
+                this.currentCount = 0;
+                document.getElementById('countDisplay').textContent = '0';
+            }
+
+            updateTasbihColor() {
+                document.documentElement.style.setProperty('--tasbih-color', this.selectedColor);
+            }
+
+            showMessage(message) {
+                // Create temporary message element
+                const messageEl = document.createElement('div');
+                messageEl.textContent = message;
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(26, 135, 84, 0.9);
+                    color: white;
+                    padding: 15px 30px;
+                    border-radius: 10px;
+                    font-size: 1.1rem;
+                    z-index: 1000;
+                    animation: fadeIn 0.3s ease;
+                `;
+
+                document.body.appendChild(messageEl);
+
+                // Remove message after 2 seconds
+                setTimeout(() => {
+                    messageEl.style.animation = 'fadeOut 0.3s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(messageEl);
+                    }, 300);
+                }, 2000);
+            }
+        }
+
+        // Initialize the Digital Tasbih
+        document.addEventListener('DOMContentLoaded', () => {
+            new DigitalTasbih();
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translate(-50%, -50%); }
+                to { opacity: 0; transform: translate(-50%, -60%); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
