@@ -186,6 +186,132 @@
             margin-bottom: 40px;
         }
 
+        /* Instructions Section */
+        .instructions-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .instructions-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #D4AF37, #FFC107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .instruction-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instruction-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .instruction-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #D4AF37, #1A8754);
+        }
+
+        .instruction-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: linear-gradient(45deg, #D4AF37, #FFC107);
+            color: #0A1A2F;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 5px;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .tips-section {
+            background: rgba(26, 135, 84, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #1A8754;
+        }
+
+        .tips-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1A8754;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .tip-bullet {
+            color: #D4AF37;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
         /* Tasbih Section */
         .tasbih-section {
             background: rgba(255, 255, 255, 0.1);
@@ -438,9 +564,14 @@
                 padding: 40px 0;
             }
 
+            .instructions-section,
             .tasbih-section {
                 padding: 25px;
                 margin: 20px 0;
+            }
+
+            .instructions-grid {
+                grid-template-columns: 1fr;
             }
 
             .dhikr-options {
@@ -506,7 +637,7 @@
                     <a href="#" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Tasbih</a>
+                    <a href="#tasbih" class="nav-link">Tasbih</a>
                 </li>
             </ul>
         </div>
@@ -523,8 +654,81 @@
             <p class="faith-grow-glow">Faith • Grow • Glow</p>
         </header>
 
+        <!-- Instructions Section -->
+        <section class="instructions-section">
+            <h2 class="instructions-title">How to Use Digital Tasbih</h2>
+            
+            <div class="instructions-grid">
+                <div class="instruction-card">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Choose Your Color</div>
+                            <div class="step-description">Select your preferred tasbih color from the available options. Each color represents a different theme to match your spiritual mood.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-card">
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-title">Select a Dhikr</div>
+                            <div class="step-description">Click on one of the dhikr options below. Each has its traditional count - SubhanAllah, Alhamdulillah, and Allahu Akbar are recited 33 times each.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-card">
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-title">Start Counting</div>
+                            <div class="step-description">Click the circular tasbih counter while reciting your selected dhikr. Each click will increment the count automatically.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-card">
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <div class="step-title">Complete Your Session</div>
+                            <div class="step-description">When you reach the target count, you'll see a completion message. The counter will automatically reset for your next session.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <div class="tips-title">
+                    💡 Helpful Tips
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Find a quiet, clean place for your dhikr to maintain focus and concentration.</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Recite each dhikr with meaning and presence of heart, not just as a counting exercise.</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>You can use the "Reset Count" button anytime to start over if needed.</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>The traditional sequence after Salah is: SubhanAllah (33x), Alhamdulillah (33x), Allahu Akbar (33x), followed by the Tawheed declaration once.</span>
+                </div>
+                <div class="tip-item">
+                    <span class="tip-bullet">•</span>
+                    <span>Consider making dhikr a daily habit - consistency brings greater spiritual benefit than quantity.</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Tasbih Section -->
-        <section class="#tasbih-section">
+        <section class="tasbih-section" id="tasbih">
             <div class="tasbih-container">
                 <!-- Color Selection -->
                 <div class="color-selection">
