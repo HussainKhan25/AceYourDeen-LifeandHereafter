@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Duas Collection - AceYourDeen</title>
+    <style>
+      
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0A1A2F 0%, #1A8754 100%);
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    border-color: #D4AF37;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    transform: scale(1.05);
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.author-credit {
+    font-size: 1.1rem;
+    color: #D4AF37;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.main-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: bold;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #D4AF37, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); }
+    to { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+/* Progress Section */
+.progress-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.progress-title {
+    font-size: 1.5rem;
+    color: #D4AF37;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.progress-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #1A8754, #D4AF37);
+    height: 100%;
+    border-radius: 25px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 0%;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.progress-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.completion-status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.completion-status.completed {
+    color: #D4AF37;
+    animation: celebrate 0.5s ease;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Duas Section */
+.duas-section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.duas-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #D4AF37, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dua-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dua-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dua-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #1A8754);
+}
+
+.dua-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.dua-checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.dua-checkbox input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+}
+
+.checkbox-design {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #D4AF37;
+    border-radius: 6px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dua-checkbox input[type="checkbox"]:checked + .checkbox-design {
+    background: linear-gradient(45deg, #D4AF37, #1A8754);
+    border-color: #D4AF37;
+    transform: scale(1.1);
+}
+
+.checkbox-design::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.2s ease;
+}
+
+.dua-checkbox input[type="checkbox"]:checked + .checkbox-design::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dua-number {
+    background: linear-gradient(45deg, #D4AF37, #FFC107);
+    color: #0A1A2F;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: -5px;
+}
+
+.dua-text {
+    flex: 1;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: right;
+    direction: rtl;
+}
+
+.dua-transliteration {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    font-size: 0.95rem;
+    direction: ltr;
+    text-align: left;
+}
+
+.final-prayer {
+    background: rgba(26, 135, 84, 0.2);
+    border: 2px solid #1A8754;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.final-prayer-text {
+    font-size: 1.3rem;
+    color: #D4AF37;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.aameen-text {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+/* Footer Styles */
+.footer {
+    margin-top: 80px;
+    padding: 40px 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.footer-author {
+    font-size: 1rem;
+    color: #D4AF37;
+    font-weight: 500;
+}
+
+.heart {
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 15px;
+    }
+
+    .navbar-nav {
+        display: none;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .header {
+        padding: 30px 0;
+    }
+
+    .duas-section {
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    .dua-header {
+        gap: 10px;
+    }
+
+    .dua-text {
+        font-size: 1rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .progress-container {
+        height: 40px;
+    }
+
+    .progress-text {
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.confetti {
+    animation: confetti 0.5s ease;
+}
+
+@keyframes confetti {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+        
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="https://ik.imagekit.io/hackenvision/Quran/aceyourdeen:lifeandhereafter?updatedAt=1748325253071" 
+                     alt="AceYourDeen Logo" 
+                     class="logo-image"
+                     onerror="this.style.display='none'">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="dua.html" class="nav-link">Duas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#tasbih" class="nav-link">Tasbih</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="author-credit">By Mohammed Abdul Raqeeb</div>
+            <h1 class="main-title">Islamic Duas Collection</h1>
+            <p class="subtitle">Essential Daily Prayers for Every Muslim</p>
+        </header>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <h2 class="progress-title">Your Progress</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-text" id="progressText">0 / 41 Duas Completed (0%)</div>
+            </div>
+            <div class="completion-status" id="completionStatus">Keep going! Every dua brings you closer to Allah.</div>
+        </section>
+
+        <!-- Duas Section -->
+        <section class="duas-section">
+            <h2 class="duas-title">DUA - Daily Islamic Prayers</h2>
+            
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-1">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">1</div>
+                    <div class="dua-text">
+                        اے اللہ ہم عاجز بندے تیری پاکی بیان کرتے ہیں اور تیرے آگے ہاتھ پھیلاتے ہیں۔
+                        <div class="dua-transliteration">Ae Allah ham a'ajiz bande teri paaki bayaan karte hain aur tere aage haath pehlaate hain.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-2">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">2</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے دلوں کو اخلاص کے ساتھ اپنے دین کی طرف پھیر دے۔
+                        <div class="dua-transliteration">Ae Allah hamare dilon ko Ikhlaas ke saath apne Deen ki taraf pher de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-3">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">3</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے صغیرہ اور کبیرہ گناہوں کو معاف فرما دے۔
+                        <div class="dua-transliteration">Ae Allah hamare Sageerah aur Kabeerah gunahon ko maaf farma de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-4">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">4</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو پکا اور سچا مسلمان بنا دے۔
+                        <div class="dua-transliteration">Ae Allah hamko Pakka aur Saccha Musalman bana de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-5">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">5</div>
+                    <div class="dua-text">
+                        اے اللہ ہماری مشکلات کو حل فرما دے۔
+                        <div class="dua-transliteration">Ae Allah hamari mushkilaat ko hal farma de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-6">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">6</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو اسلام پر استقامت عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko Islam par Isteqaamat atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-7">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">7</div>
+                    <div class="dua-text">
+                        اے اللہ ہم سے راضی ہو جا، ہمکو شیطان اور نفس کے شر سے بچا۔
+                        <div class="dua-transliteration">Ae Allah hamse raazi ho jaa, hamko Shaitaan aur Nafs ke Shar se bacha.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-8">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">8</div>
+                    <div class="dua-text">
+                        اے اللہ ایمان کے ساتھ خاتمہ فرما۔
+                        <div class="dua-transliteration">Ae Allah Emaan ke saath Khatima farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-9">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">9</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے قدموں کو صراط مستقیم پر چلنے والا بنا دے۔
+                        <div class="dua-transliteration">Ae Allah hamare qadmon ko Siraat-e-Mustaqeem par chalne waala bana de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-10">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">10</div>
+                    <div class="dua-text">
+                        اے اللہ اپنی رضا پر راضی رہنے کی توفیق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah apni Razaa par Raazi rehne ki taufeeq ataa farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-11">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">11</div>
+                    <div class="dua-text">
+                        اے اللہ اپنی خاص رحمت نازل فرما، اور اپنے قہر و غضب سے بچا لے۔
+                        <div class="dua-transliteration">Ae Allah apni Qaas Rehmat naazil farma, aur apne Qahar wa Gazab se bacha le.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-12">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">12</div>
+                    <div class="dua-text">
+                        اے اللہ قیامت کے روز رسوائی سے بچا لینا۔
+                        <div class="dua-transliteration">Ae Allah Qiyamat ke rooz Ruswayi se bacha lena.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-13">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">13</div>
+                    <div class="dua-text">
+                        اے اللہ اپنے عرش کے سائے میں جگہ عنایت فرمانا۔
+                        <div class="dua-transliteration">Ae Allah apne Arsh ke saaye me jagah inayath farmana.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-14">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">14</div>
+                    <div class="dua-text">
+                        اے اللہ قیامت کے روز اپنا دیدار نصیب فرمانا۔
+                        <div class="dua-transliteration">Ae Allah Qiyamat ke rooz apna deedaar naseeb farmana.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-15">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">15</div>
+                    <div class="dua-text">
+                        اے اللہ کل امت محمدیہ کو حشر کی رسوائی سے پناہ عنایت فرما۔
+                        <div class="dua-transliteration">Ae Allah kul Ummat-e-Mohammedia ko Hashar ki Ruswayi se panah inayath farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-16">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">16</div>
+                    <div class="dua-text">
+                        اے اللہ اسلام کا بول بالا فرما۔ اسلام کا جھنڈا بلند فرما۔
+                        <div class="dua-transliteration">Ae Allah Islam ka bool baala farma. Islam ka Jhanda buland farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-17">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">17</div>
+                    <div class="dua-text">
+                        اے اللہ تمام مسلمانوں کو خواب غفلت سے بیدار کر دے۔
+                        <div class="dua-transliteration">Ae Allah tamaam Musalmaanon ko khaab-e-Gaflat se bedaar kar de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-18">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">18</div>
+                    <div class="dua-text">
+                        اے اللہ سب مسلمانوں کو متحد فرما دے۔
+                        <div class="dua-transliteration">Ae Allah sab Musalmaanon ko muttahid farma de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-19">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">19</div>
+                    <div class="dua-text">
+                        اے اللہ فلسطین، کشمیر اور دنیا بھر کے مظلوم مسلمانوں کی مدد فرما۔
+                        <div class="dua-transliteration">Ae Allah Filasteen, Kashmir aur dunya bhar ke mazloom Musalmaanon ki madad farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-20">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">20</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے والدین کو صحت اور عافیت عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamare walidain ko sehat aur aafiyat atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-21">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">21</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے مرحوم والدین کو جنت الفردوس عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamare marhoom walidain ko Jannat-ul-Firdaws atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-22">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">22</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے اساتذہ، علماء اور مشائخ کو صحت اور توفیق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamare asaatiza, ulama aur mashaaikh ko sehat aur taufeeq atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-23">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">23</div>
+                    <div class="dua-text">
+                        اے اللہ ہماری اولاد کو نیک اور صالح بنا دے۔
+                        <div class="dua-transliteration">Ae Allah hamari aulaad ko naik aur saaleh bana de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-24">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">24</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو حلال رزق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko halaal rizq atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-25">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">25</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو دنیا کی فتنوں سے محفوظ رکھ۔
+                        <div class="dua-transliteration">Ae Allah hamko dunya ki fitnon se mehfooz rakh.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-26">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">26</div>
+                    <div class="dua-text">
+                        اے اللہ ہماری نماز، روزہ، حج اور زکوٰۃ کو قبول فرما۔
+                        <div class="dua-transliteration">Ae Allah hamari namaz, roza, haj aur zakat ko qabool farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-27">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">27</div>
+                    <div class="dua-text">
+                        اے اللہ ہماری زندگی میں برکت عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamari zindagi me barkat atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-28">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">28</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو صبر اور شکر کی توفیق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko sabr aur shukr ki taufeeq atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-29">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">29</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے گھروں کو امن اور سکون سے بھر دے۔
+                        <div class="dua-transliteration">Ae Allah hamare gharon ko amn aur sukoon se bhar de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-30">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">30</div>
+                    <div class="dua-text">
+                        اے اللہ قرآن کریم کو سمجھنے اور اس پر عمل کرنے کی توفیق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah Quran Kareem ko samajhne aur is par amal karne ki taufeeq atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-31">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">31</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو حضرت محمد ﷺ کی سنتوں پر چلنے کی توفیق عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko Hazrat Muhammad ﷺ ki sunnaton par chalne ki taufeeq atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-32">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">32</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو اچھے دوست اور نیک صحبت نصیب فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko achhe dost aur naik sohbat naseeb farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-33">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">33</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو بُرے لوگوں کی صحبت سے بچا۔
+                        <div class="dua-transliteration">Ae Allah hamko bure logon ki sohbat se bacha.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-34">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">34</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو تواضع اور انکساری نصیب فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko tawaazu aur inkisaari naseeb farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-35">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">35</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو تکبر اور غرور سے بچا۔
+                        <div class="dua-transliteration">Ae Allah hamko takabbur aur ghuroor se bacha.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-36">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">36</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو سچائی اور انصاف کا راستہ دکھا۔
+                        <div class="dua-transliteration">Ae Allah hamko sachaai aur insaaf ka raasta dikha.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-37">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">37</div>
+                    <div class="dua-text">
+                        اے اللہ ہمارے دل میں تیری محبت پیدا کر دے۔
+                        <div class="dua-transliteration">Ae Allah hamare dil me teri mohabbat paida kar de.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-38">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">38</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو جہنم کی آگ سے پناہ عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko jahannam ki aag se panah atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-39">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">39</div>
+                    <div class="dua-text">
+                        اے اللہ ہمکو جنت الفردوس عطا فرما۔
+                        <div class="dua-transliteration">Ae Allah hamko Jannat-ul-Firdaws atta farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-40">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">40</div>
+                    <div class="dua-text">
+                        اے اللہ قیامت کے دن ہماری شفاعت کے لیے نبی کریم ﷺ کا وسیلہ قبول فرما۔
+                        <div class="dua-transliteration">Ae Allah Qiyamat ke din hamari shafaat ke liye Nabi Kareem ﷺ ka waseela qabool farma.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dua-item">
+                <div class="dua-header">
+                    <div class="dua-checkbox">
+                        <input type="checkbox" id="dua-41">
+                        <div class="checkbox-design"></div>
+                    </div>
+                    <div class="dua-number">41</div>
+                    <div class="dua-text">
+                        اے اللہ ہم سب پر اپنی رحمت اور مغفرت کا سایہ رکھ۔
+                        <div class="dua-transliteration">Ae Allah ham sab par apni rehmat aur maghfirat ka saaya rakh.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-prayer">
+                <div class="final-prayer-text">یا اللہ! ہماری یہ تمام دعائیں قبول فرما</div>
+                <div class="final-prayer-text">Ya Allah! Hamari ye tamaam duayen qabool farma</div>
+                <div class="aameen-text">آمین ثم آمین</div>
+                <div class="aameen-text">Ameen Sum Ameen</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">Made with <span class="heart">❤️</span> for the Ummah</p>
+            <p class="footer-author">By Mohammed Hussain Abid Khan - Founder @ AceYourDeen: Life & Hereafter [ Faith, Grow, Glow ]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Progress tracking functionality
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.dua-item input[type="checkbox"]');
+            const checkedBoxes = document.querySelectorAll('.dua-item input[type="checkbox"]:checked');
+            const total = checkboxes.length;
+            const completed = checkedBoxes.length;
+            const percentage = Math.round((completed / total) * 100);
+            
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const completionStatus = document.getElementById('completionStatus');
+            
+            // Update progress bar
+            progressBar.style.width = percentage + '%';
+            progressText.textContent = `${completed} / ${total} Duas Completed (${percentage}%)`;
+            
+            // Update completion status
+            if (percentage === 0) {
+                completionStatus.textContent = "Keep going! Every dua brings you closer to Allah.";
+                completionStatus.className = 'completion-status';
+            } else if (percentage < 25) {
+                completionStatus.textContent = "Great start! May Allah accept your prayers.";
+                completionStatus.className = 'completion-status';
+            } else if (percentage < 50) {
+                completionStatus.textContent = "You're making wonderful progress! Keep it up.";
+                completionStatus.className = 'completion-status';
+            } else if (percentage < 75) {
+                completionStatus.textContent = "More than halfway there! Masha'Allah!";
+                completionStatus.className = 'completion-status';
+            } else if (percentage < 100) {
+                completionStatus.textContent = "Almost there! Just a few more duas to go.";
+                completionStatus.className = 'completion-status';
+            } else {
+                completionStatus.textContent = "Alhamdulillah! All duas completed! May Allah accept them all.";
+                completionStatus.className = 'completion-status completed';
+                
+                // Add celebration effect
+                progressBar.classList.add('confetti');
+                setTimeout(() => {
+                    progressBar.classList.remove('confetti');
+                }, 500);
+            }
+            
+            // Save progress to memory (not localStorage due to Claude.ai restrictions)
+            window.duaProgress = {
+                completed: completed,
+                total: total,
+                percentage: percentage,
+                checkedItems: Array.from(checkedBoxes).map(cb => cb.id)
+            };
+        }
+
+        // Add event listeners to all checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.dua-item input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // Add animation to the parent dua item
+                    const duaItem = this.closest('.dua-item');
+                    duaItem.classList.add('fade-in');
+                    
+                    // Update progress
+                    updateProgress();
+                    
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        duaItem.classList.remove('fade-in');
+                    }, 500);
+                });
+            });
+            
+            // Initialize progress on page load
+            updateProgress();
+        });
+
+        // Add scroll animations
+        function animateOnScroll() {
+            const duaItems = document.querySelectorAll('.dua-item');
+            
+            duaItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (itemTop < windowHeight * 0.8) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize scroll animations
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Set initial styles for scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const duaItems = document.querySelectorAll('.dua-item');
+            duaItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+    </script>
+</body>
+</html>
